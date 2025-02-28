@@ -1,0 +1,6 @@
+host_uploads/
+venv-*
+venv
+env-*
+env
+__pycache__/
