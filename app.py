@@ -8,13 +8,18 @@ from flask import (
 )
 import os
 from werkzeug.utils import secure_filename
+from dotenv import load_dotenv
+
+load_dotenv()
+
+secret_key = os.getenv('secret_key', "Insecure-ThisIsSampleTestingTestingKey")
+password = os.getenv('app_password', 'isaac')
 
 
 app = Flask(__name__)
-app.secret_key = 'isaac'
+app.secret_key = secret_key
 UPLOAD_FOLDER = '/app/uploads/data'  # Absolute path for Docker
-PASSWORD = 'isaac'
-
+PASSWORD = password
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)

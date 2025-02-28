@@ -3,10 +3,12 @@ services:
     build: .
     ports:
       - "1515:1515"
+    environment:
+      - app_password=testing
+      - secret_key=Insecure-ThisIsSampleTestingTestingKey
+      - PYTHONUNBUFFERED=1  # To see print statements in logs
     volumes:
       - type: bind
         source: ./host_uploads
         target: /app/uploads/data
-    environment:
-      - PYTHONUNBUFFERED=1  # To see print statements in logs
     restart: unless-stopped
