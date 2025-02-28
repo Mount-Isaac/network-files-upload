@@ -1,36 +1,59 @@
+
 # Local Network File Transfer Service
 
-This service provides a seamless way to transfer files between devices without relying on social media apps or being distracted by them. It enables direct file transfers within your local network, keeping you focused and away from social media interruptions.
+A simple and lightweight file transfer solution for devices on the same local network, **without relying on social media apps**.
 
-## Features
-- **Simple Setup**: Easily transfer files between devices on the same network.
-- **Flask-based Web App**: Lightweight and resource-friendly.
-- **Cross-platform**: Runs on all major operating systems (Windows, Linux, macOS).
-- **Customizable**: Default password is ‘isaac’, but it can be changed by cloning the GitHub repository and rebuilding the image locally.
+---
 
-## Installation & Usage
+### Installation & Usage
 
-### 1. **Connect Devices to the Same Network**
-   Ensure that all devices are on the same local network.
+1. **Clone the GitHub Repo**
+   ```bash
+   git clone https://github.com/Mount-Isaac/network-files-upload.git
+   ```
 
-### 2. **Run the Service on the Server**
-   Run the service on the computer you want to use as the server. This computer will handle the file transfers.
+2. **Pull the Docker Image**
+   ```bash
+   docker pull theisaac/files-webapp:latest
+   ```
 
-### 3. **Access the Web App**
-   Open the web app from a browser on any device connected to the same network.
+3. **Run the Docker Container**
+   ```bash
+   docker run -p 1515:1515 theisaac/files-webapp
+   ```
 
-### 4. **Change Default Password (Optional)**
-   The default password is ‘isaac’. To change it, clone the GitHub repository and rebuild the image locally.
+4. **Rebuild the Image (Optional)**  
+   If you want to change the default password or modify the app:
+   ```bash
+   docker build -t theisaac/files-webapp .
+   ```
 
-## Firewall Setup
+---
 
-### Windows:
-   - Open the Windows Firewall and whitelist **port 1515** for inbound traffic. This allows all computers on the network to access the web app.
+### Firewall Setup
 
-### Linux:
-   - Use the following command to enable access to the service:
-     ```bash
-     sudo ufw allow 1515/tcp
-     ```
+Ensure the server allows inbound traffic on port **1515**:
 
+- **Linux**:
+  ```bash
+  sudo ufw allow 1515/tcp
+  ```
+
+- **Windows**:  
+  Open Windows Firewall and allow inbound traffic on **port 1515**.
+
+---
+
+### Access the Web App
+
+Once the service is running, you can access the web app through any device on the same network by visiting:
+
+- [http://localhost:1515](http://localhost:1515)  
+- [http://127.0.0.1:1515](http://127.0.0.1:1515)  
+- [http://0.0.0.0:1515](http://0.0.0.0:1515)
+
+---
+
+Enjoy transferring files between devices with ease!
+```
 
