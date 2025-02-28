@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+        
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .upload-area {
+            border: 2px dashed #ddd;
+            border-radius: 5px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            transition: border 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .upload-area:hover {
+            border-color: #3498db;
+        }
+        
+        .upload-area i {
+            font-size: 3rem;
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+        
+        .upload-area p {
+            color: #7f8c8d;
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .selected-file {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #2c3e50;
+        }
+        
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .message {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: #7f8c8d;
+            font-size: 0.8rem;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .upload-area {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>File Upload Portal</h1>
+            <p>Select files to upload to the server</p>
+        </div>
+        
+        <form method="POST" enctype="multipart/form-data">
+            <div class="upload-area" id="uploadArea" onclick="document.getElementById('file').click()">
+                <i>📁</i>
+                <p>Click to browse or drag files here</p>
+                <div class="selected-file" id="selectedFile"></div>
+            </div>
+            
+            <input type="file" id="file" name="file" class="file-input" onchange="updateFileName()">
+            
+            <button type="submit" class="submit-btn">Upload File</button>
+            
+            {% if message %}
+            <div class="message {% if 'successfully' in message %}success{% else %}error{% endif %}">
+                {{ message }}
+            </div>
+            {% endif %}
+        </form>
+        
+        <div class="footer">
+            <p>Isaac Network Upload Portal | <a href="/">Logout</a></p>
+        </div>
+    </div>
+    
+    <script>
+        function updateFileName() {
+            const fileInput = document.getElementById('file');
+            const selectedFile = document.getElementById('selectedFile');
+            
+            if (fileInput.files.length > 0) {
+                selectedFile.textContent = 'Selected: ' + fileInput.files[0].name;
+            } else {
+                selectedFile.textContent = '';
+            }
+        }
+        
+        // Drag and drop functionality
+        const uploadArea = document.getElementById('uploadArea');
+        
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#3498db';
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.borderColor = '#ddd';
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#ddd';
+            
+            if (e.dataTransfer.files.length > 0) {
+                document.getElementById('file').files = e.dataTransfer.files;
+                updateFileName();
+            }
+        });
+    </script>
+</body>
+</html>

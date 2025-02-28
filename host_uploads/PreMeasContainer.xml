@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<PreMeasContainer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CreatingVersion>8.7.1.0</CreatingVersion>
+  <Nodes />
+  <Identifier IdentificationType="PreMeasData" UserName="BrukerAXS" MachineName="D6-252120">
+    <Guid>99da3510-c516-4233-a92c-0f9b20cd3c60</Guid>
+    <Comment />
+    <TimeStampCreated>2024-11-21T12:49:57.5438368+03:00</TimeStampCreated>
+    <AdditionalIdentifications IdentificationType="Experiment" UserName="BrukerAXS" MachineName="D6-252120">
+      <Guid>1f34fa7e-5b6a-4372-910c-cc6cac56565e</Guid>
+      <Comment />
+      <TimeStampCreated>2024-11-21T12:49:57.5438368+03:00</TimeStampCreated>
+    </AdditionalIdentifications>
+  </Identifier>
+  <PreMeasData />
+</PreMeasContainer>

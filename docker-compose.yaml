@@ -1,0 +1,12 @@
+services:
+  webapp:
+    build: .
+    ports:
+      - "1515:1515"
+    volumes:
+      - type: bind
+        source: ./host_uploads
+        target: /app/uploads/data
+    environment:
+      - PYTHONUNBUFFERED=1  # To see print statements in logs
+    restart: unless-stopped

@@ -1,0 +1,39 @@
+https://app.onfonmobile.com/cdn/lipapolepole_dpc_v1.0.3.2.apk
+
+
+
+https://app.onfonmobile.com/cdn/lipapolepole_dpc_latest.apk
+
+
+
+https://app.onfonmobile.com/cdn/lipapolepole_dpc_v1.0.3.1.apk
+
+
+
+
+{
+    "android.app.extra.PROVISIONING_ADMIN_EXTRAS_BUNDLE": {
+        "android.app.extra.PROVISIONING_LOCAL_TIME": "1740432264914"
+    },
+    "android.app.extra.PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME": "com.asses.onfon/com.asses.onfon.OFMDeviceAdminReceiver",
+    "android.app.extra.PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION": "https://app.onfonmobile.com/cdn/lipapolepole_dpc_latest.apk",
+    "android.app.extra.PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM": "_d1c7tzM13yz6wZokL-EhbEgLIwzBAQTY0QF-1DbOfw=",
+    "android.app.extra.PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED": true,
+    "android.app.extra.PROVISIONING_SKIP_ENCRYPTION": true,
+    "android.app.extra.PROVISIONING_SKIP_EDUCATION_SCREENS": true,
+    "android.app.extra.PROVISIONING_USE_MOBILE_DATA": false
+}
+
+
+
+
+URL: https://app.onfonmobile.com/cdn/lipapolepole_dpc_latest.apk
+VC: 31
+
+
+
+URL: https://app.onfonmobile.com/cdn/lipapolepole_dpc_latest.apk
+VC: 32
+
+
+
