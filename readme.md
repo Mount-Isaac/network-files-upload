@@ -11,6 +11,10 @@ A simple and lightweight file transfer solution for devices on the same local ne
    ```bash
    git clone https://github.com/Mount-Isaac/network-files-upload.git
    ```
+2. **Run locally by building a new image**
+   ```bash
+      docker-compose up -d --build 
+   ```
 
 2. **Pull the Docker Image**
    ```bash
@@ -55,5 +59,4 @@ Once the service is running, you can access the web app through any device on th
 ---
 
 Enjoy transferring files between devices with ease!
-```
 
